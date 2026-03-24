@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкции - OCR систем</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <div class="nav-logo">OCR систем</div>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link {% if active_page == 'instructions' %}active{% endif %}">Инструкции</a>
+                <a href="{{ url_for('workspace') }}" class="nav-link {% if active_page == 'workspace' %}active{% endif %}">Обработка на PDF</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container narrow-container">
+        <section class="hero-section">
+            <h1>Систем за дигитизација на книги со OCR</h1>
+            <p class="hero-subtitle">
+                Апликација за претворање на скенирани PDF книги во текстуален документ, со можност за преглед, пребарување, корекција и преземање на финален текст.
+            </p>
+        </section>
+
+        <section class="stack-card">
+            <h2>Како да ја користите апликацијата?</h2>
+            <p>
+                Апликацијата овозможува од скенирана книга поставена во PDF да добиете текстуален фајл.
+                Можете да се движите низ страниците, да пребарувате по збор или фраза, да го корегирате добиениот текст и да ја преземете финалната верзија.
+            </p>
+
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Прикачете PDF документ</h3>
+                        <p>Изберете PDF документ од книгата што сакате да ја обработите и прикачете го во апликацијата.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Почекајте OCR обработка</h3>
+                        <p>По прикачувањето, системот ќе изврши OCR обработка и ќе го прикаже текстот по страници.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Корегирајте и зачувајте</h3>
+                        <p>Проверете го добиениот текст, направете потребни корекции и кликнете на „Зачувај корекција“ за да ја зачувате тековната страница.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-card">
+            <h2>Започнете со обработка на вашиот PDF документ</h2>
+            <p>Преминете на работната страница и прикачете го вашиот документ за обработка.</p>
+            <a href="{{ url_for('workspace') }}" class="cta-button">Кликнете тука</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка на PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <div class="nav-logo">OCR систем</div>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link {% if active_page == 'instructions' %}active{% endif %}">Инструкции</a>
+                <a href="{{ url_for('workspace') }}" class="nav-link {% if active_page == 'workspace' %}active{% endif %}">Обработка на PDF</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container workspace-container">
+        <section class="workspace-header">
+            <h1>Обработка на PDF документ</h1>
+            <p>Прикачете PDF документ и започнете со OCR обработка, преглед, корекција и преземање на финален текст.</p>
+        </section>
+
+        <section class="main-card upload-card">
+            <h2>Прикачување документ</h2>
+            <p class="section-text">Изберете PDF книга што сакате да ја обработите.</p>
+
+            <form id="uploadForm" class="upload-form">
+                <input type="file" id="fileInput" name="file" accept=".pdf" required>
+                <button type="submit" id="uploadBtn">Прикачи PDF</button>
+            </form>
+
+            <div id="statusMessage" class="status-message"></div>
+        </section>
+
+        <section id="viewerSection" class="hidden-section">
+            <section class="workspace-toolbar compact-toolbar">
+                <div class="toolbar-main-row">
+                    <div class="nav-inline soft-box">
+                        <button id="prevBtn" type="button" class="icon-btn nav-btn">←</button>
+                        <span id="pageInfo" class="page-info-box">Страна 1 / 1</span>
+                        <button id="nextBtn" type="button" class="icon-btn nav-btn">→</button>
+                    </div>
+
+                    <div class="goto-inline soft-box">
+                        <input type="number" id="goToInput" min="1" placeholder="Број на страница">
+                        <button id="goToBtn" type="button" class="nav-btn">Оди</button>
+                    </div>
+
+                    <div class="search-inline soft-box">
+                        <input type="text" id="searchInput" placeholder="Пребарај збор или фраза">
+                        <button id="searchBtn" type="button">Пребарај</button>
+                        <button id="clearSearchBtn" type="button" class="secondary-btn">Исчисти</button>
+                    </div>
+                </div>
+
+                <div class="toolbar-download-row">
+                    <button id="downloadBtn" type="button" class="download-btn">Преземи корегиран текст фајл</button>
+                    <button id="clearDocBtn" type="button" class="secondary-btn">Отстрани тековен документ</button>
+                </div>
+            </section>
+
+            <div id="searchInfo" class="search-info"></div>
+            <div id="resultsContainer" class="results-container compact-results"></div>
+
+            <section class="workspace-split">
+                <div class="image-panel compact-panel">
+                    <h3>Слика од страница</h3>
+                    <div class="panel-body image-body">
+                        <img id="pageImage" src="" alt="Page image">
+                    </div>
+                </div>
+
+                <div class="text-panel compact-panel">
+                    <h3>OCR / корегиран текст</h3>
+                    <div class="panel-body text-body">
+                        <textarea id="pageText"></textarea>
+                    </div>
+                    <div class="save-row">
+                        <button id="saveBtn" type="button">Зачувај корекција</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
