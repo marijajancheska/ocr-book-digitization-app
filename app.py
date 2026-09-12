@@ -17,8 +17,6 @@ UPLOAD_FOLDER = "uploads"
 PROCESSED_FOLDER = "processed"
 ALLOWED_EXTENSIONS = {"pdf"}
 
-TESSERACT_PATH = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-POPPLER_PATH = r"C:\Release-25.12.0-0\poppler-25.12.0\Library\bin"
 
 pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
 
