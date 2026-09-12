@@ -18,7 +18,7 @@ PROCESSED_FOLDER = "processed"
 ALLOWED_EXTENSIONS = {"pdf"}
 
 
-pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["PROCESSED_FOLDER"] = PROCESSED_FOLDER
